@@ -18,4 +18,8 @@ Annotations in your docker compose file will be used to determine whether a serv
 Use dcm to control ensuring you always have the latest packages installed in your development containers. It also is a forcing-function to ephemeral development - a best practice in current development whereby the only tooling that exists at the start are those declared in your image build process.
 
 
-
+## TODO:
+- Write a command and functionality to mimic cron
+- Consume a docker compose file and determine the services to be managed
+- Determine access to annotations
+- Determine helper commands for manual intervention
