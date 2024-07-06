@@ -14,7 +14,6 @@ import (
 )
 
 type agentFlags struct {
-	flags
 	schedule string // -s --schedule
 	test     string // -t --test
 }
@@ -33,6 +32,7 @@ This application is a tool to generate the needed files
 to quickly create a Cobra application.`,
 	Run: func(cmd *cobra.Command, args []string) {
 		slog.Info("agent called")
+		// slog.Info(fmt.Sprintf("cfgfile: %s", opts.cfgFile))
 
 		if agentOpts.test != "" {
 			slog.Info(fmt.Sprintf("test: %s\n", agentOpts.test))
@@ -61,7 +61,7 @@ func init() {
 	agentCmd.Flags().StringVarP(&agentOpts.schedule, "schedule", "s", "", "cron format for schedule")
 
 	// Here you will define your flags and configuration settings.
-	v := common.InitViper(agentOpts.cfgFile)
+	v := common.InitViper()
 	common.BindFlags(agentCmd, v)
 
 	// Cobra supports Persistent Flags which will work for this command

@@ -3,7 +3,6 @@ package common
 import (
 	"fmt"
 	"log/slog"
-	"os"
 
 	"github.com/spf13/cobra"
 	"github.com/spf13/pflag"
@@ -15,22 +14,21 @@ var (
 	v *viper.Viper
 )
 
-func InitViper(cfgFile string) *viper.Viper {
+func InitViper() *viper.Viper {
 	v := viper.New()
 
-	if cfgFile != "" {
-		// Use config file from the flag.
-		v.SetConfigFile(cfgFile)
-	} else {
+	// if cfgFile != "" {
+	// 	// Use config file from the flag.
+	// 	v.SetConfigFile(cfgFile)
+	// } else {
 		// Find home directory.
-		home, err := os.UserHomeDir()
-		cobra.CheckErr(err)
+	// home, err := os.UserHomeDir()
+	// cobra.CheckErr(err)
 
-		// Search config in home directory with name ".dev-container-manager" (without extension).
-		v.AddConfigPath(home)
-		v.SetConfigType("yaml")
-		v.SetConfigName(".dev-container-manager")
-	}
+	// Search config in home directory with name ".dev-container-manager" (without extension).
+	v.AddConfigPath(".")
+	v.SetConfigType("yaml")
+	v.SetConfigName(".dev-container-manager")
 
 	v.AutomaticEnv() // read in environment variables that match
 

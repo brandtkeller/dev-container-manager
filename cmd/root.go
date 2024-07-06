@@ -6,15 +6,14 @@ package cmd
 import (
 	"os"
 
-	"github.com/brandtkeller/dev-container-manager/cmd/common"
 	"github.com/spf13/cobra"
 )
 
-type flags struct {
-	cfgFile string // -c --cfgFile
-}
+// type flags struct {
+// 	cfgFile string // -c --cfgFile
+// }
 
-var opts = &flags{}
+// var opts = &flags{}
 
 var rootCmd = &cobra.Command{
 	Use:   "dev-container-manager",
@@ -41,15 +40,15 @@ func Execute() {
 }
 
 func init() {
-	v := common.InitViper(opts.cfgFile)
+	// v := common.InitViper(opts.cfgFile)
 
-	common.BindFlags(rootCmd, v)
+	// common.BindFlags(rootCmd, v)
 
 	// Here you will define your flags and configuration settings.
 	// Cobra supports persistent flags, which, if defined here,
 	// will be global for your application.
 
-	rootCmd.PersistentFlags().StringVarP(&opts.cfgFile, "config", "c", "", "config file (default is $HOME/.dev-container-manager.yaml)")
+	// rootCmd.PersistentFlags().StringVarP(&opts.cfgFile, "config", "c", "", "config file (default is $HOME/.dev-container-manager.yaml)")
 
 	// Cobra also supports local flags, which will only run
 	// when this action is called directly.
