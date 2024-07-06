@@ -1,1 +1,2 @@
 test: "Here is a viper test message"
+schedule: "@every 7s"
